@@ -1,0 +1,15 @@
+.au
+
+.withoutform {
+  overflow: hidden;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 0;
+  transform: translate(-100%, -50%);
+  transition: all 0.3s ease-in-out 0.1s;
+}
+
+.showform {
+  transform: translate(0%, -50%);
+}

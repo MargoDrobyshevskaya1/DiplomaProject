@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+header {
+  transition: all 0.5s linear;
+}
+
+header:hover {
+  background-color: rgba(24, 25, 26, 0.1);
+}
+
+
+nav ul li {
+  list-style-type: none;
+}
+
+nav ul li {
+  margin-right: 40px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 17px;
+  color: #000;
+}
+
+nav ul {
+  display: flex;
+  
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  height: 30px;
+  border: none;
+  background-color: #1263fa;
+  color: #FFF;
+  border-radius: 3px;
+  width: 90px;
+  align-items: center;
+}
+
+.wrapper-header {
+  padding: 20px 0px;
+}
+
+.authorization-wrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.authorization {
+  display: flex;
+  list-style-type: none;
+  position: absolute;
+  right: 0;
+}
+
+.authorization button{
+  margin-right: 10px;
+}
+
+svg {
+  fill: #FFFFFF;
+}
+
+.logo{
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+p {
+  font-size: 20px;
+  color: #1263fa;
+  font-weight: 700;
+}
+
+p span {
+  color: #ff5300;
+}
+
+.basket {
+  margin-left: 40px;
+}
