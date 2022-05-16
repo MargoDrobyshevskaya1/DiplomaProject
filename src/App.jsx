@@ -14,7 +14,7 @@ function App() {
      
       <div className="authorization">
         <Form/>
-      </div>
+   </div>
       
       </div>
       
@@ -31,8 +31,8 @@ function App() {
         </button>
       </nav>
     </div>
-    
   </header>
+  
 }
 
 export default App;
