@@ -54,22 +54,19 @@ button {
   padding: 20px 0px;
 }
 
-.authorization-wrapper {
+.authregist-wrapper {
   display: flex;
   justify-content: center;
   position: relative;
 }
 
-.authorization {
-  display: flex;
+.alignment {
+   display: flex;
   list-style-type: none;
   position: absolute;
   right: 0;
 }
 
-.authorization button{
-  margin-right: 10px;
-}
 
 svg {
   fill: #FFFFFF;
