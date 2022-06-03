@@ -43,12 +43,14 @@ import './Registration.css'
 
      <div className={style}>
        <form className="formRegist" onSubmit={register}>
+         <h2>Register</h2>
+        <label>Name</label>
          <input type="text" name="name" placeholder="Name"/>
          <input type="text" name="username" placeholder="Username"/>
          <input type="text" name="address" placeholder="Address"/>
          <input type="password" name="password" placeholder="Password"/>
          <label>{massegeText}</label>
-         <button type="submit">Register</button>
+         <button type="submit" className="register">Register</button>
        </form>
      </div>
      </>

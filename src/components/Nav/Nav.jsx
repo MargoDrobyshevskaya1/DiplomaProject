@@ -1,7 +1,6 @@
 import React from "react"
-import Orders from "../Orders/Orders"
-import Basket from '../Basket/Basket'
 import { Link } from 'react-router-dom';
+import './Nav.css'
 
 const Nav = () => {
   return (
@@ -13,8 +12,7 @@ const Nav = () => {
         <li><Link to="/contacts">Contacts</Link></li>
         <li><Link to="/aboutus">About us</Link></li>
       </ul>
-      <Basket/>
-      <Orders/>
+      
     </nav>
     </>
   )

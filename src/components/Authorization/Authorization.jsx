@@ -3,6 +3,18 @@ import './Authorization.css'
 const Authorization = () => {
   const [style, setStyle] = useState('withoutFormAuth');
   const [errorText, setErrorText] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const showLogOut = () => {
+    setIsLoggedIn(!isLoggedIn);
+  }
+
+  let content = null;
+  if (isLoggedIn) {
+    content = (
+      <button>Log Out</button>
+    )
+  }
   
   const showFormAuth = () => {
     setStyle('showFormAuth');
@@ -46,14 +58,15 @@ const Authorization = () => {
     <>
     
     <button className="login" type="button" onClick={showFormAuth}>Log in</button>
+    {content}
   
    <div className={style}>
     <form className="formAuth" onSubmit={login}>
       <input type='text' name="username" placeholder="Username"/>
       <input type='password' name="password" placeholder="Password"/>
       <label>{errorText}</label>
-     <button type="submit">Log in</button>
-     <button onClick={hideFormAuth}>Close</button>
+     <button type="submit" onClick={showLogOut}>Log in</button>
+     <button type="button" onClick={hideFormAuth}>Close</button>
     </form>
       </div>
     </>

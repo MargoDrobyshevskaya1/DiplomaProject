@@ -1,7 +1,9 @@
 import { Outlet} from 'react-router-dom';
-import Authorization from '../Authorization/Authorization'
-import Registration from '../Registration/Registration'
 import Nav from '../Nav/Nav'
+import Orders from "../Orders/Orders"
+import Bag from '../Bag/Bag'
+import Account from "../Account/Account";
+import './Layout.css'
 
 const Layout = () => {
   return (
@@ -9,17 +11,19 @@ const Layout = () => {
     <header>
      <div className="wrapper-header">
         <div className="logo">
-        <p>Make<span>Up</span> Shop</p>
+        <p>makeup shop.</p>
       </div>
-      <div className="authregist-wrapper">
-       <div className="alignment">
-        <Authorization/>
+        <Nav/>
+        <div className="btns">
+         <Orders/>
+       
+        <Account/>
      
-        <Registration/>
-   </div>
+      <Bag/>
       </div>
-      
-     <Nav/>
+
+       
+   
     </div>
   </header>
 

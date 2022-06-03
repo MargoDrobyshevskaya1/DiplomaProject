@@ -1,0 +1,20 @@
+.account_btn {
+  background: none;
+  border: none;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+
+.account-wrapper {
+  position: relative;
+  display: flex;
+}
+
+.account-list  {
+  position: absolute;
+  transform: translate(0%, 70%);
+  
+}
