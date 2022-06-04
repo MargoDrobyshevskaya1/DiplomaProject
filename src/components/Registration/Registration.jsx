@@ -39,7 +39,7 @@ import './Registration.css'
    return (
      <>
      
-     <button type="button" onClick={showFormRegist}>Registration</button>
+     <button className="registration" type="button" onClick={showFormRegist}>Registration</button>
 
      <div className={style}>
        <form className="formRegist" onSubmit={register}>

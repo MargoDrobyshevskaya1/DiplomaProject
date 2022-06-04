@@ -1,20 +1,29 @@
 .account_btn {
   background: none;
   border: none;
+  overflow: hidden;
+  display: flex;
 }
 
 ul li {
   list-style-type: none;
+  
 }
 
 
 .account-wrapper {
   position: relative;
-  display: flex;
+   
 }
 
-.account-list  {
+.account-wrapper ul  {
   position: absolute;
-  transform: translate(0%, 70%);
+  transform: translate(-80%, -150%);
+  z-index: 4;
+  transition: all 0.5s ease-in-out 0.1s;
   
+}
+
+.account-wrapper:hover ul {
+  transform: translate(-80%, 0%)
 }
