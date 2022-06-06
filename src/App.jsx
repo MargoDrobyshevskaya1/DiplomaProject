@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css'
 
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import AboutUs from './Pages/AboutUs'
-import Contacts from './Pages/Contacts'
+import Contacts from './Pages/Contacts/Contacts'
 import Home from './Pages/Home'
+import Catalogue from './Pages/Catalogue'
 import Layout from './components/Layout/Layout'
 function App() {
   return ( 
@@ -12,6 +13,7 @@ function App() {
   <Routes>
     <Route path='/' element={<Layout />}>
     <Route index element={<Home />} />
+    <Route path='/catalogue'element={<Catalogue />} />
     <Route path='/aboutus' element={<AboutUs />} />
      <Route path='/contacts' element={<Contacts />} />
      </Route>

@@ -28,6 +28,11 @@ const Layout = () => {
   </header>
 
   <Outlet/>
+  <footer>
+    <div className="footer-inf">
+    <p>©2022 Makeupshop. All rights reserved.</p>
+    </div>
+  </footer>
 </>
   )
 }

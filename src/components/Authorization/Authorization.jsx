@@ -41,7 +41,6 @@ const Authorization = () => {
       data: data,
       status: resp.status,
       
-      
     })
     ).then(response => {
       if (response.status >= 400 && resp.status <= 499) {

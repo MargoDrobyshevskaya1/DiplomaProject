@@ -13,6 +13,7 @@
   padding: 20px 130px;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
 }
 
 .btns {
@@ -20,4 +21,16 @@
   width: 100px;
   justify-content: space-between;
   align-items: center;
+}
+
+footer {
+  background-color: #1E1E1E;
+}
+
+.footer-inf {
+  padding: 50px 70px;
+}
+
+.footer-inf p{
+  color: #F7F4F2;
 }
