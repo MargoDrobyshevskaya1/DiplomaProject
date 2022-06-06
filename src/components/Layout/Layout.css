@@ -1,3 +1,7 @@
+header {
+  background-color: #F7F4F2;
+}
+
 .logo{
   align-items: center;
   width: 91px;
@@ -34,3 +38,5 @@ footer {
 .footer-inf p{
   color: #F7F4F2;
 }
+
+

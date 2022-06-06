@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react" 
-import Options from './Options/Options'
-import './Brands.css'
+
 
 const Brands = () => {
   const [brands, setBrands] = useState([])
@@ -22,9 +21,14 @@ const Brands = () => {
 
   return (
     <>
-    <select className="select" name="" id="">
-      <Options options={brands}/>
-    </select>
+    <ul>
+      {brands.map((brand) => (
+        <li>
+          <button>{brand.name}</button>
+        </li>
+      ))}
+    </ul>
+   
     </>
   )
 }

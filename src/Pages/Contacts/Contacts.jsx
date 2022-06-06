@@ -3,6 +3,7 @@ import './Contacts.css'
 const Contacts = () => {
 
   return (
+    <main>
     <section className="contacts">
     <div className="contacts-map">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.4797700121435!2d20.988593115685752!3d52.234668779761186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc85ceba8407%3A0x11b02169fc7e364d!2zR3J6eWJvd3NrYSwgV2Fyc3phd2EsINCf0L7Qu9GM0YjQsA!5e0!3m2!1sru!2sby!4v1654470536533!5m2!1sru!2sby"></iframe>
@@ -23,6 +24,7 @@ const Contacts = () => {
       </div>
     </div>
     </section>
+    </main>
   )
 }
 

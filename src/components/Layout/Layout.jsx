@@ -7,7 +7,7 @@ import './Layout.css'
 
 const Layout = () => {
   return (
-    <>
+    <div className='wrapper'>
     <header>
      <div className="wrapper-header">
         <div className="logo">
@@ -33,7 +33,7 @@ const Layout = () => {
     <p>©2022 Makeupshop. All rights reserved.</p>
     </div>
   </footer>
-</>
+</div>
   )
 }
 

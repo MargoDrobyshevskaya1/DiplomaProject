@@ -4,7 +4,7 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import AboutUs from './Pages/AboutUs'
 import Contacts from './Pages/Contacts/Contacts'
-import Home from './Pages/Home'
+import Home from './Pages/Home/Home'
 import Catalogue from './Pages/Catalogue'
 import Layout from './components/Layout/Layout'
 function App() {
