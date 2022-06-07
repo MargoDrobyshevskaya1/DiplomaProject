@@ -1,4 +1,4 @@
-import { Outlet} from 'react-router-dom';
+import { Outlet, Link} from 'react-router-dom';
 import Nav from '../Nav/Nav'
 import Orders from "../Orders/Orders"
 import Bag from '../Bag/Bag'
@@ -11,7 +11,7 @@ const Layout = () => {
     <header>
      <div className="wrapper-header">
         <div className="logo">
-        <p>makeup shop.</p>
+          <Link to="/"><p>makeup shop.</p></Link>
       </div>
         <Nav/>
         <div className="btns">

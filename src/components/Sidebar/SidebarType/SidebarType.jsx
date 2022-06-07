@@ -1,31 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 import Type from "../../Type/Type";
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+import './SidebarType.css'
+
+export const styles = {
+  border: 0,
+  boxShadow: 0,
+  width: 250,
+  bgcolor: '#F7F4F2'
+}
 
 const SidebarType = () => {
-  const [isTypessOpened, setIsTypesOpened] = useState(false);
-  const changeTypesState = () => {
-    setIsTypesOpened(!isTypessOpened);
-  }
+  
 
   return (
-    <div className="sidebar-type">
-    <span>Type</span>
-    <button onClick={changeTypesState}>
-      <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M15 1L8 9L1 1" stroke="#1E1E1E" strokeLinecap="round"/>
-</svg>
-    </button>
-    <hr></hr>
-  <div className='brand-dropdown'>
-    {
-    isTypessOpened ? (
-      <>
-      <Type />
-      </>
-    ) : (<></>) }
-  
-  </div>
-  </div>
+    <>
+    <Accordion sx= {styles}>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header" sx={styles}  >
+        Type
+        </AccordionSummary>  
+        <AccordionDetails sx = {styles}>
+          <Type />
+        </AccordionDetails>
+    </Accordion>
+    </>
+   
   )
 }
 

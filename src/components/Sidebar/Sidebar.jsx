@@ -1,6 +1,7 @@
 import SidebarBrand from "./SidebarBrand/SidebarBrand";
 import SidebarType from "./SidebarType/SidebarType";
 import React from "react"
+import './Sidebar.css'
 const Sidebar = () => {
   
   return(

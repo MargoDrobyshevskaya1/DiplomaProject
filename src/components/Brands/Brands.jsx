@@ -1,8 +1,32 @@
 import React, {useState, useEffect} from "react" 
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import { ListItemText } from "@mui/material";
 
 
+export const styleBrandsTypes = {
+  display: 'flex', 
+  flexDirection: 'column',
+  alignItems: 'flex-start' 
+} 
 const Brands = () => {
-  const [brands, setBrands] = useState([])
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [brands, setBrands] = useState([]);
+
+  const handleListItemClick = (event, index, reqParam) => {
+    setSelectedIndex(index);
+    const request = fetch(`http://localhost:8000/products?brand_name=${reqParam}`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then((response) => {
+      return response.json()
+    }).then((data) => {
+      console.log(data);
+    })
+  }; 
+  
   useEffect(() => {
     request();
   }, [])
@@ -21,15 +45,23 @@ const Brands = () => {
 
   return (
     <>
-    <ul>
-      {brands.map((brand) => (
-        <li>
-          <button>{brand.name}</button>
-        </li>
+    <List component="nav" aria-label="main mailbox folders" sx={styleBrandsTypes}>
+      {brands.map((brand, index) => (
+        
+        <ListItemButton key={brand.id}
+          selected={selectedIndex === index}
+          onClick={(event) => handleListItemClick(event, index, brand.name)}
+        >
+          
+          <ListItemText primary={brand.name} />
+        </ListItemButton>
+       
+        
       ))}
-    </ul>
+        
+        </List>
    
-    </>
+   </>
   )
 }
 

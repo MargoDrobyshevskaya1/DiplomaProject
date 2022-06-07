@@ -1,5 +1,5 @@
 .section-header {
-  background-image: url('../../../public/Pictures/MainBackground.png');
+  background-image: url('../../Pictures/MainBackground.png');
   height: 90vh;
   width: 100%;
   background-size: cover;
@@ -33,4 +33,52 @@ font-weight: 400;
 font-size: 18px;
 line-height: 24px;
 color: #1E1E1E;
+transition: all 0.3s ease-in-out 0.1s;
+text-decoration: none;
+}
+
+.section-header-inf button:hover {
+  background: #1E1E1E;
+  color: #F7F4F2;
+}
+
+.shopTarget {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 150px;
+}
+
+.shopTarget p {
+ width: 600px;
+}
+
+.shopTarget img {
+ width: 500px;
+}
+
+.targetText {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 50px;
+  color: #1E1E1E;
+}
+
+.shopTarget-inf {
+  margin-top: 40px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #1E1E1E;
+}
+
+.shopTarget button{
+  background-color: none;
+  width: 110px;
+  height: 40px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #1E1E1E;
+  margin-top: 30px;
 }

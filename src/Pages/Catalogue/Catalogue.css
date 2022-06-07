@@ -1,0 +1,14 @@
+main {
+  background-color: #F7F4F2;
+}
+
+.section-sidebar {
+  padding: 100px 150px;
+}
+.section-sidebar h1 {
+  font-weight: 400;
+  font-size: 100px;
+  line-height: 180px;
+  text-align: center;
+  color: #1E1E1E;
+}
