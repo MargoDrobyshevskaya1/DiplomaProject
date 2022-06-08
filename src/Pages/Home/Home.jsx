@@ -1,6 +1,6 @@
 import './Home.css'
 import { Link } from 'react-router-dom'
-
+import BrandsSvg from "./BrandsSvg"
 
 const Home = () => {
   return (
@@ -23,6 +23,14 @@ const Home = () => {
       </div>
       <div>
         <img src={require("../../Pictures/TargetSection.png")} alt="Photo" />
+      </div>
+    </section>
+    <section className="section-brands">
+      <div className="brands-svg">
+        <BrandsSvg />
+      </div>
+      <div>
+        <p>“Makeupshop is pioneering transparent and responsible beauty, with affacious products that consider people and the planet.”</p>
       </div>
     </section>
     </main>

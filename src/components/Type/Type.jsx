@@ -8,11 +8,20 @@ import { styleBrandsTypes } from '../Brands/Brands'
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import { ListItemText } from "@mui/material";
+import { updateProducts as updateProductsAction } from "../../store/actions/products.actions";
+import { useDispatch } from "react-redux";
+
+
 import './Type.css'
 
 const Type = () => { 
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [types, setTypes] = useState([]);
+
+  const dispatch = useDispatch();
+  
+  
+  // const addProduct = (arrayProduct) => dispatch(withProductsAction(arrayProduct))
   const handleListItemClick = (event, index, productType, categories) => {
     setSelectedIndex(index);
     const request = fetch(`http://localhost:8000/products?product_type=${productType}&category=${categories}`, {
@@ -23,7 +32,9 @@ const Type = () => {
     }).then((response) => {
       return response.json()
     }).then((data) => {
-      console.log(data);
+      // addProduct(data);
+      dispatch(updateProductsAction(data))
+      
     })
   }; 
  

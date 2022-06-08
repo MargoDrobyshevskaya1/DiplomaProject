@@ -83,3 +83,14 @@ text-decoration: none;
   color: #1E1E1E;
   margin-top: 30px;
 }
+
+.section-brands {
+  background-color: #1E1E1E;
+  padding: 100px 200px;
+}
+
+.brands-svg {
+  display: flex;
+  justify-content: space-between;
+
+}
