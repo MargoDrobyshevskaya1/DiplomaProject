@@ -35,7 +35,7 @@ const FormRow = () => {
     <React.Fragment>
       { productsShow.length !== 0 ? productsShow.map((product) => (
         <Grid key={product.id} item xs={4} >
-          <Item  sx= {productStyle}>
+          <Item  sx={productStyle}>
             <div className="productPicture">
               <img  src={product.image_link } alt="Photo" />
             </div>

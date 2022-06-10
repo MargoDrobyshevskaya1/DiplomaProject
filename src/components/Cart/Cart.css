@@ -1,0 +1,9 @@
+.cart {
+ padding: 50px;
+}
+.cart-inf {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
