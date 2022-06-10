@@ -1,4 +1,4 @@
-import { PRODUCTS, UPDATERODUCTS } from './products.actions-types';
+import { PRODUCTS, UPDATERODUCTS } from '../products/products.actions-types';
 
 export const products = () => ({
   type: PRODUCTS,

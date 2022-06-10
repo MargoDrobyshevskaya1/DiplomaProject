@@ -1,7 +1,7 @@
 import { Outlet, Link} from 'react-router-dom';
 import Nav from '../Nav/Nav'
 import Orders from "../Orders/Orders"
-import Bag from '../Bag/Bag'
+import Cart from '../Cart/Cart'
 import Account from "../Account/Account";
 import './Layout.css'
 
@@ -19,7 +19,7 @@ const Layout = () => {
        
         <Account/>
      
-      <Bag/>
+      <Cart/>
       </div>
 
        

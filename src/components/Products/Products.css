@@ -1,0 +1,20 @@
+.productPicture img{
+  width: 200px;
+  height: 200px;
+}
+
+.productPicture {
+   width: 200px;
+  height: 200px;
+}
+
+.gridInf {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+}
+
+.gridName {
+  width: 170px;
+  font-size: 12px;
+}

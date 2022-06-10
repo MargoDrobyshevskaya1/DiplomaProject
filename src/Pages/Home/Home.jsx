@@ -29,7 +29,7 @@ const Home = () => {
       <div className="brands-svg">
         <BrandsSvg />
       </div>
-      <div>
+      <div className="brands-text">
         <p>“Makeupshop is pioneering transparent and responsible beauty, with affacious products that consider people and the planet.”</p>
       </div>
     </section>

@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react"
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import { ListItemText } from "@mui/material";
+import { updateProducts as updateProductsAction } from "../../store/actions/products/products.actions";
+import { useDispatch } from "react-redux";
 
 
 export const styleBrandsTypes = {
@@ -13,6 +15,8 @@ const Brands = () => {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [brands, setBrands] = useState([]);
 
+  const dispatch = useDispatch();
+
   const handleListItemClick = (event, index, reqParam) => {
     setSelectedIndex(index);
     const request = fetch(`http://localhost:8000/products?brand_name=${reqParam}`, {
@@ -23,7 +27,7 @@ const Brands = () => {
     }).then((response) => {
       return response.json()
     }).then((data) => {
-      console.log(data);
+      dispatch(updateProductsAction(data));
     })
   }; 
   

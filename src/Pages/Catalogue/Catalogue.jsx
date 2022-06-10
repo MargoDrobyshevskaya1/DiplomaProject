@@ -8,11 +8,16 @@ const Catalogue = () => {
   
   return (
     <main>
+      <h1 className="header-sidebar">Catalogue</h1>
       <section className="section-sidebar">
-    <h1>Catalogue</h1>
     
+    <div>
     <Sidebar />
+    
+    </div>
+    <div>
     <Products />
+    </div>
     
     
     </section>

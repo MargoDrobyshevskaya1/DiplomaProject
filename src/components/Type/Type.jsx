@@ -8,7 +8,7 @@ import { styleBrandsTypes } from '../Brands/Brands'
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import { ListItemText } from "@mui/material";
-import { updateProducts as updateProductsAction } from "../../store/actions/products.actions";
+import { updateProducts as updateProductsAction } from "../../store/actions/products/products.actions";
 import { useDispatch } from "react-redux";
 
 
@@ -32,7 +32,6 @@ const Type = () => {
     }).then((response) => {
       return response.json()
     }).then((data) => {
-      // addProduct(data);
       dispatch(updateProductsAction(data))
       
     })
@@ -59,15 +58,15 @@ const Type = () => {
    <ul>
       {types.map((type) => ( 
         <li key={type.id}> 
-        <Accordion sx= {styles} className="accordion-categories">
-      <AccordionSummary sx= {styles} expandIcon={<ExpandMoreIcon />}
+        <Accordion sx= {{...styles, width: 80}} className="accordion-categories">
+      <AccordionSummary sx= {{...styles, width: 80}} expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header" className="accordion">
         {type.name}
         </AccordionSummary>  
         <AccordionDetails sx= {styles}>
           
-           <List component="nav" aria-label="main mailbox folders" sx={styleBrandsTypes}>
+           <List component="nav" aria-label="main mailbox folders" sx={{...styleBrandsTypes, width: 150}}>
       {type.categories.map((categorie, index) => (
         
         <ListItemButton key={categorie.id}

@@ -4,8 +4,10 @@ main {
 
 .section-sidebar {
   padding: 100px 150px;
+  display: flex;
+  justify-content: space-between;
 }
-.section-sidebar h1 {
+.header-sidebar {
   font-weight: 400;
   font-size: 100px;
   line-height: 180px;

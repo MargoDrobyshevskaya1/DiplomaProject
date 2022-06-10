@@ -87,10 +87,24 @@ text-decoration: none;
 .section-brands {
   background-color: #1E1E1E;
   padding: 100px 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .brands-svg {
   display: flex;
   justify-content: space-between;
+  width: 1000px;
+  align-items: center;
+}
 
+.brands-text {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 54px;
+  width: 700px;
+  text-align: center;
+  color: #F7F4F2;
+  margin-top: 120px;
 }
