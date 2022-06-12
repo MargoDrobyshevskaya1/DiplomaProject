@@ -39,6 +39,10 @@
             "always"
         ],
         "no-multiple-empty-lines": 
-        ["error", { "max": 2, "maxEOF": 0 }]
+        [
+            "error", { "max": 2, "maxEOF": 0 }],
+        "no-unused-vars": 
+        [
+            "warn", { "varsIgnorePattern": "VARIABLE_NAME"}]
     }
 }

@@ -1,75 +1,63 @@
-import React, { useState} from "react"
-import './Authorization.css'
+import React, { useState} from 'react';
+import { Dialog, DialogContent} from '@mui/material';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { showFormAuth as  showFormAuthAction, closeFormAuth as closeFormAuthAction} from '../../store/actions/authForm/authForm.actions';
+import { login as loginAction, logout as logoutAction } from '../../store/actions/user/user.actions';
+import './Authorization.css';
 const Authorization = () => {
-  const [style, setStyle] = useState('withoutFormAuth');
+
   const [errorText, setErrorText] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const showLogOut = () => {
-    setIsLoggedIn(!isLoggedIn);
-  }
-
-  let content = null;
-  if (isLoggedIn) {
-    content = (
-      <button>Log Out</button>
-    )
-  }
-  
-  const showFormAuth = () => {
-    setStyle('showFormAuth');
-  }
-
-  const hideFormAuth = () => {
-    setStyle('withoutFormAuth')
-  }
+  const showForm = useSelector(state => state.authFrom);
+  const user = useSelector(state => state.user);
+  const dispatch = useDispatch();
 
   const login = (e) => {
     e.preventDefault();
     const formData = new URLSearchParams();
     formData.append('username', e.target.username.value);
     formData.append('password', e.target.password.value);
-    console.log(e.target.username.value);
-    console.log(e.target.password.value);
     const resp = fetch('http://localhost:8000/auth', {
       method: 'POST',
       body: formData,
       headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
     }).then(resp => resp.json().then(data => ({
       data: data,
       status: resp.status,
       
     })
     ).then(response => {
-      if (response.status >= 400 && resp.status <= 499) {
-        setErrorText(response.data.detail)
+      if (response.status >= 400 && resp.status <= 599) {
+        setErrorText(response.data.detail);
       }else {
-        localStorage.setItem('token', JSON.stringify(response.data));
+        localStorage.setItem('token', JSON.stringify(response.data.access_token));
+        dispatch(closeFormAuthAction());
+        dispatch(loginAction());
       }
     }));
-  }
-
-
+  };
 
   return (
     <>
-    
-    <button className="login" type="button" onClick={showFormAuth}>Log in</button>
-    {content}
-  
-   <div className={style}>
-    <form className="formAuth" onSubmit={login}>
-      <input type='text' name="username" placeholder="Username"/>
-      <input type='password' name="password" placeholder="Password"/>
-      <label>{errorText}</label>
-     <button type="submit" onClick={showLogOut}>Log in</button>
-     <button type="button" onClick={hideFormAuth}>Close</button>
-    </form>
-      </div>
+      <Link to='/'>{user === false ?  <button className="login" type="button" onClick={() => dispatch(showFormAuthAction())}> Log in</button>
+        : <button className="login" type="button" onClick={() => 
+        {dispatch(logoutAction());
+          localStorage.removeItem('token');}}> Log out</button>}</Link>
+      <Dialog open={showForm}>
+        <DialogContent>
+          <form className="formAuth" onSubmit={login}>
+            <input type='text' name="username" placeholder="Username"/>
+            <input type='password' name="password" placeholder="Password"/>
+            <label>{errorText}</label>
+            <button type="submit" className="loginForm">Log in</button>
+            <button type="button" onClick={() => dispatch(closeFormAuthAction())}>Close</button>
+          </form>
+        </DialogContent>
+      </Dialog>
     </>
-  )
-}
+  );
+};
 
 export default Authorization;

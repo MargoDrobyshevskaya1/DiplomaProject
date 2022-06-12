@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Drawer, Box, Button, List, ListItem } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux/es/exports';
 import { removeFromCart as removeFromCartAction} from '../../store/actions/cart/cart.actions';
+import { showOrderForm as showOrderFormAction } from '../../store/actions/orderForm/orderForm.actions';
+import OrderForm from '../OrderForm/OrderForm';
 import './Cart.css';
 
 // const cartStyles = {
@@ -11,12 +13,12 @@ import './Cart.css';
 const Сart = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const addProducts = useSelector(state => state.cart);
+  
   const dispatch = useDispatch();
 
   return (
     <>
-      <Button onClick={() => setIsDrawerOpen(true)}>
-    
+      <Button sx={{minWidth: 0, padding: 0}} onClick={() => setIsDrawerOpen(true)}>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1 5.5H23V21.2295C23 22.2073 22.2224 23 21.2632 23H2.73684C1.77761 23 1 22.2073 1 21.2295V5.5Z" stroke="#1E1E1E"/>
           <path d="M6 10V7.54545C6 3.9305 8.6863 1 12 1C15.3137 1 18 3.9305 18 7.54545V10" stroke="#1E1E1E" strokeLinecap="round"/>
@@ -36,13 +38,13 @@ const Сart = () => {
               </svg></button>
             </div>
             <Box width='640px' role='presentation'>
-              { addProducts.map((product) => (
+              {addProducts.length !== 0 ? addProducts.map((product) => (
                 <List key={product.id}>
                   <ListItem>
-                    <div>
+                    <div className="product-img">
                       <img src={product.image_link} alt="" />
                     </div>
-                    <div>
+                    <div cl>
                       {product.name}
                       {product.price}
                     </div>
@@ -54,20 +56,19 @@ const Сart = () => {
                         </svg>
                       </button>
                     </div>
-                    
                   </ListItem>
-                  
                 </List> 
-              )
-              )  
+              )) : (<p>Your cart is empty</p>)
               }
               <div>
-                <button disabled>Checkout</button>
+                <button onClick={() => dispatch(showOrderFormAction())} disabled={addProducts.length !== 0 ? false : true}>Checkout</button>
               </div>
             </Box>
           </div>
         </div>
+        <OrderForm/>
       </Drawer>
+      
     </>
   );
 };  

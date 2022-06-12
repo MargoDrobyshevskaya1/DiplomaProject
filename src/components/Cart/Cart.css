@@ -7,3 +7,11 @@
   
 }
 
+.product-img img{
+  width: 100px;
+  height: 100px;
+}
+
+.cart-wtapper {
+  background-color: #F7F4F2;
+}

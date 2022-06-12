@@ -1,6 +1,6 @@
 import { ADDTOCART, REMOVEFROMCART } from '../actions/cart/cart.actions-types';
 
-const initialState = [];
+export const initialState = [];
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
   case ADDTOCART: {
