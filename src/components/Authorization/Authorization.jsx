@@ -30,7 +30,10 @@ const Authorization = () => {
     })
     ).then(response => {
       if (response.status >= 400 && resp.status <= 599) {
-        setErrorText(response.data.detail);
+        setErrorText(response.data.detail); 
+        if(response.status === 422) {
+          setErrorText(response.data.detail.msg);
+        }
       }else {
         localStorage.setItem('token', JSON.stringify(response.data.access_token));
         dispatch(closeFormAuthAction());
