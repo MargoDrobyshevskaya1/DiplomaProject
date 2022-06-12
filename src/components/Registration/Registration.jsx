@@ -30,6 +30,9 @@ const  Registration = () => {
       })).then(resp => {
         if(resp.status  >= 400 && resp.status <= 599) {
           setMassegeText(resp.data.detail);
+          if(response.status === 422) {
+            setMassegeText(response.data.detail.msg);
+          }
         } else setMassegeText('Registration completed successfully. Log in');
       })
     );

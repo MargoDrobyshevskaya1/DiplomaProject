@@ -38,9 +38,9 @@ const Сart = () => {
               </svg></button>
             </div>
             <Box width='640px' role='presentation'>
-              {addProducts.length !== 0 ? addProducts.map((product) => (
-                <List key={product.id}>
-                  <ListItem>
+              <List >
+                {addProducts.length !== 0 ? addProducts.map((product, index) => (
+                  <ListItem key={index}>
                     <div className='product-img'>
                       <img src={product.image_link} alt="" />
                     </div>
@@ -49,7 +49,7 @@ const Сart = () => {
                       <div>${product.price}</div>
                     </div>
                     <div>
-                      <button onClick={() => dispatch(removeFromCartAction(product))}>
+                      <button onClick={() => dispatch(removeFromCartAction(index))}>
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M13 1L1 13" stroke="#1E1E1E" strokeLinecap="round"/>
                           <path d="M1 1L13 13" stroke="#1E1E1E" strokeLinecap="round"/>
@@ -57,9 +57,9 @@ const Сart = () => {
                       </button>
                     </div>
                   </ListItem>
-                </List> 
-              )) : (<p>Your cart is empty</p>)
-              }
+                )) : (<p>Your cart is empty</p>)
+                }
+              </List> 
               <div>
                 <button onClick={() => dispatch(showOrderFormAction())} disabled={addProducts.length !== 0 ? false : true}>Checkout</button>
               </div>

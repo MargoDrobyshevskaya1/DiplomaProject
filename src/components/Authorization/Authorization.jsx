@@ -14,32 +14,35 @@ const Authorization = () => {
 
   const login = (e) => {
     e.preventDefault();
-    const formData = new URLSearchParams();
-    formData.append('username', e.target.username.value);
-    formData.append('password', e.target.password.value);
-    const resp = fetch('http://localhost:8000/auth', {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    }).then(resp => resp.json().then(data => ({
-      data: data,
-      status: resp.status,
-      
-    })
-    ).then(response => {
-      if (response.status >= 400 && resp.status <= 599) {
-        setErrorText(response.data.detail); 
-        if(response.status === 422) {
-          setErrorText(response.data.detail.msg);
+    if(!e.target.username.value || !e.target.password.value){
+      setErrorText('Login fields cannot be empty');
+    } else {
+      const formData = new URLSearchParams();
+      formData.append('username', e.target.username.value);
+      formData.append('password', e.target.password.value);
+      const resp = fetch('http://localhost:8000/auth', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
         }
-      }else {
-        localStorage.setItem('token', JSON.stringify(response.data.access_token));
-        dispatch(closeFormAuthAction());
-        dispatch(loginAction());
-      }
-    }));
+      }).then(resp => resp.json().then(data => ({
+        data: data,
+        status: resp.status,
+      })
+      ).then(response => {
+        if (response.status >= 400 && resp.status <= 599) {
+          setErrorText(response.data.detail); 
+          if(response.status === 422) {
+            setErrorText(response.data.detail.msg);
+          }
+        }else {
+          localStorage.setItem('token', JSON.stringify(response.data.access_token));
+          dispatch(closeFormAuthAction());
+          dispatch(loginAction());
+        }
+      }));
+    }
   };
 
   return (
