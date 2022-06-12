@@ -15,3 +15,11 @@
 .cart-wtapper {
   background-color: #F7F4F2;
 }
+
+.product-inf {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 200px;
+  height: 100px;
+}

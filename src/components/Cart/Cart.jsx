@@ -41,12 +41,12 @@ const Сart = () => {
               {addProducts.length !== 0 ? addProducts.map((product) => (
                 <List key={product.id}>
                   <ListItem>
-                    <div className="product-img">
+                    <div className='product-img'>
                       <img src={product.image_link} alt="" />
                     </div>
-                    <div cl>
-                      {product.name}
-                      {product.price}
+                    <div className='product-inf'>
+                      <div>{product.name}</div>
+                      <div>${product.price}</div>
                     </div>
                     <div>
                       <button onClick={() => dispatch(removeFromCartAction(product))}>
