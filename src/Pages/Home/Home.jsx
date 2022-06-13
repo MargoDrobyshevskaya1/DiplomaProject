@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Home.css';
 import { Link } from 'react-router-dom';
 import BrandsSvg from './BrandsSvg';
+import { useDispatch } from 'react-redux';
+import { products as productsAction } from '../../store/actions/products/products.actions';
 
 const Home = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(productsAction());
+  });
   return (
     <main>
       <section className="section-header">

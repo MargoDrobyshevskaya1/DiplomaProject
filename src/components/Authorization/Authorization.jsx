@@ -47,10 +47,10 @@ const Authorization = () => {
 
   return (
     <>
-      <Link to='/'>{user === false ?  <button className="login" type="button" onClick={() => dispatch(showFormAuthAction())}> Log in</button>
-        : <button className="login" type="button" onClick={() => 
+      {user === false ?  <button className="login" type="button" onClick={() => dispatch(showFormAuthAction())}> Log in</button>
+        :  <Link to='/'><button className="login" type="button" onClick={() => 
         {dispatch(logoutAction());
-          localStorage.removeItem('token');}}> Log out</button>}</Link>
+          localStorage.removeItem('token');}}> Log out</button></Link>}
       <Dialog open={showForm}>
         <DialogContent>
           <form className="formAuth" onSubmit={login}>

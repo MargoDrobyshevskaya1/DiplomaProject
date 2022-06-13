@@ -11,4 +11,10 @@
   color: #1E1E1E;
   margin-bottom: 10px;
   height: 30px;
+  
+}
+
+.scrollCategories {
+  overflow-x: hidden;
+  
 }

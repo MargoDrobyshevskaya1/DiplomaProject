@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Card, CardContent } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { products as productsAction } from '../../store/actions/products/products.actions';
 
 const MyOrders = () => {
   const [addOrders, setAddOrders] = useState([]);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     getOrders();
+    dispatch(productsAction());
   }, []);
   const getOrders = () => {
     const token = JSON.parse(localStorage.getItem('token'));

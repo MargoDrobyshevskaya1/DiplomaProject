@@ -1,6 +1,7 @@
 .productPicture img{
   width: 200px;
   height: 200px;
+  mix-blend-mode: multiply;
 }
 
 .productPicture {
@@ -11,10 +12,44 @@
 .gridInf {
   display: flex;
   justify-content: space-between;
-  width: 250px;
+  width: 200px;
+  margin-top: 5px;
 }
 
 .gridName {
-  width: 170px;
+  width: 160px;
   font-size: 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #1E1E1E;
+}
+
+.gridPrice {
+  font-weight: 400;
+  font-size: 12;
+  color: #1E1E1E;
+}
+
+.grid {
+  margin-left: 100px;
+}
+
+.addToCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  background: #1E1E1E;
+  width: 70px;
+  height: 30px;
+  font-weight: 400;
+  font-size: 12px;
+  color: #F7F4F2;
+  text-align: center;
+}
+
+.addToCart span {
+  margin-right: 5px;
 }

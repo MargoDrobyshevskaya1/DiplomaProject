@@ -1,16 +1,17 @@
-import SidebarBrand from "./SidebarBrand/SidebarBrand";
-import SidebarType from "./SidebarType/SidebarType";
-import React from "react"
-import './Sidebar.css'
+import SidebarBrand from './SidebarBrand/SidebarBrand';
+import SidebarType from './SidebarType/SidebarType';
+import React from 'react';
+import './Sidebar.css';
 const Sidebar = () => {
   
   return(
-  <div className='sidebar'>
-    <SidebarBrand />
-    <SidebarType />
-  </div>
-  )
-}
-
+    <>
+      <div className='sidebar'>
+        <SidebarBrand />
+        <SidebarType />
+      </div>
+    </>
+  );
+};
 
 export default Sidebar;

@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { styles } from '../Sidebar/SidebarType/SidebarType'
-import { styleBrandsTypes } from '../Brands/Brands'
+import { styles } from '../Sidebar/SidebarType/SidebarType';
+import { styleBrandsTypes } from '../Brands/Brands';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
-import { ListItemText } from "@mui/material";
-import { updateProducts as updateProductsAction } from "../../store/actions/products/products.actions";
-import { useDispatch } from "react-redux";
-
-
-import './Type.css'
+import { ListItemText } from '@mui/material';
+import { updateProducts as updateProductsAction } from '../../store/actions/products/products.actions';
+import { useDispatch } from 'react-redux';
+import './Type.css';
 
 const Type = () => { 
   const [selectedIndex, setSelectedIndex] = useState(null);
@@ -20,8 +18,6 @@ const Type = () => {
 
   const dispatch = useDispatch();
   
-  
-  // const addProduct = (arrayProduct) => dispatch(withProductsAction(arrayProduct))
   const handleListItemClick = (event, index, productType, categories) => {
     setSelectedIndex(index);
     const request = fetch(`http://localhost:8000/products?product_type=${productType}&category=${categories}`, {
@@ -30,68 +26,54 @@ const Type = () => {
         'Accept': 'application/json'
       }
     }).then((response) => {
-      return response.json()
+      return response.json();
     }).then((data) => {
-      dispatch(updateProductsAction(data))
-      
-    })
+      dispatch(updateProductsAction(data));
+    });
   }; 
- 
- useEffect(() => {
-   request();
- }, []);
- const request = () => {
-   const response = fetch('http://localhost:8000/product_types/', {
-     method: 'GET',
-     headers: {
-       'Accept': 'application/json'
-     }
-   }).then((resp) => {
-    return resp.json()}
-  ).then((data) => {
-    setTypes(data)
-  } );
- }
 
- return (
+  useEffect(() => {
+    request();
+  }, []);
+  const request = () => {
+    const response = fetch('http://localhost:8000/product_types/', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then((resp) => {
+      return resp.json();}
+    ).then((data) => {
+      setTypes(data);
+    });
+  };
 
-   <ul>
+  return (
+    <ul>
       {types.map((type) => ( 
         <li key={type.id}> 
-        <Accordion sx= {{...styles, width: 80}} className="accordion-categories">
-      <AccordionSummary sx= {{...styles, width: 80}} expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header" className="accordion">
-        {type.name}
-        </AccordionSummary>  
-        <AccordionDetails sx= {styles}>
-          
-           <List component="nav" aria-label="main mailbox folders" sx={{...styleBrandsTypes, width: 150}}>
-      {type.categories.map((categorie, index) => (
-        
-        <ListItemButton key={categorie.id}
-          selected={selectedIndex === index}
-          onClick={(event) => handleListItemClick(event, index, type.name, categorie.name)}  
-        >
-          
-          <ListItemText primary={categorie.name} />
-        </ListItemButton>
-       
-        
-      ))}
-        
-        </List>
-         
-        </AccordionDetails>
-    </Accordion>
-    
-         
+          <Accordion sx= {{...styles, width: 80}} className="accordion-categories">
+            <AccordionSummary sx= {{...styles, width: 150}} expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header" className="accordion">
+              {type.name}
+            </AccordionSummary>  
+            <AccordionDetails  sx= {{...styles, overflowY: 'visible'}}>
+              <List component="nav" aria-label="main mailbox folders" sx={{...styleBrandsTypes, width: 150}}>
+                {type.categories.map((categorie, index) => (
+                  <ListItemButton key={categorie.id}
+                    selected={selectedIndex === index}
+                    onClick={(event) => handleListItemClick(event, index, type.name, categorie.name)} >
+                    <ListItemText  textAlign='left' primary={categorie.name} />
+                  </ListItemButton>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
         </li>
-  
       ))}
-    
-   </ul>
- )
-}
+    </ul>
+  );
+};
 
 export default Type;
