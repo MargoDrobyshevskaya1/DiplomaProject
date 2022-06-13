@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Requirements
+This project requires local api from [https://github.com/Rorychan/margo_api.git](https://github.com/Rorychan/margo_api.git) to de deployed. All instructions about api deployment could be found in the API repo.
+
 ## Available Scripts
 
 In the project directory, you can run:
