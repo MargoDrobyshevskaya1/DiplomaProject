@@ -36,6 +36,7 @@ line-height: 24px;
 color: #1E1E1E;
 transition: all 0.3s ease-in-out 0.1s;
 text-decoration: none;
+border: none;
 }
 
 .section-header-inf button:hover {
