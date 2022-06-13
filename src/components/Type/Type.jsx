@@ -56,7 +56,7 @@ const Type = () => {
             <AccordionSummary sx= {{...styles, width: 150}} expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header" className="accordion">
-              {type.name}
+              {type.name.charAt(0).toUpperCase() + type.name.slice(1)}
             </AccordionSummary>  
             <AccordionDetails  sx= {{...styles, overflowY: 'visible'}}>
               <List component="nav" aria-label="main mailbox folders" sx={{...styleBrandsTypes, width: 150}}>
@@ -64,7 +64,7 @@ const Type = () => {
                   <ListItemButton key={categorie.id}
                     selected={selectedIndex === index}
                     onClick={(event) => handleListItemClick(event, index, type.name, categorie.name)} >
-                    <ListItemText  textAlign='left' primary={categorie.name} />
+                    <ListItemText  textAlign='left' primary={categorie.name.charAt(0).toUpperCase() + categorie.name.slice(1)} />
                   </ListItemButton>
                 ))}
               </List>

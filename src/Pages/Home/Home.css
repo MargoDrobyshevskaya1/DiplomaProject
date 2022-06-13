@@ -101,10 +101,65 @@ text-decoration: none;
 
 .brands-text {
   font-weight: 400;
-  font-size: 32px;
+  font-size: 30px;
   line-height: 54px;
   width: 700px;
   text-align: center;
   color: #F7F4F2;
-  margin-top: 120px;
+  margin-top: 80px;
+}
+
+.brands-header {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  color: #F7F4F2;
+  margin-bottom: 50px;
+}
+
+.brand-values {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-ourValues {
+  padding: 100px 150px;
+  
+}
+
+.value-text {
+  font-weight: 400;
+  font-size: 16px; 
+  line-height: 24px;  
+  text-align: center;
+  color: #1E1E1E;
+  align-self: center;
+  width: 350px;
+  margin-top: 15px;
+}
+
+.value-header {
+  font-weight: 400;
+  font-size: 28px;
+  color: #1E1E1E;
+  margin-top: 10px;
+}
+
+.value-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-ourValues h3 {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 42px;
+  color: #1E1E1E;
+  margin-bottom: 15px;
+}
+
+hr {
+  border: 1px solid #CCCCCC;
 }

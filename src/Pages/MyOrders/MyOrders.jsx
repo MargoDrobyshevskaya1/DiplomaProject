@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Card, CardContent } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { products as productsAction } from '../../store/actions/products/products.actions';
+import './MyOrders.css';
 
 const MyOrders = () => {
   const [addOrders, setAddOrders] = useState([]);
@@ -25,20 +26,23 @@ const MyOrders = () => {
     });
   };
   return(
-    <>
-      <Box sx={{display: 'flex', justifyContent: 'space-between', width: 1000}}>
-        {addOrders.map((order) => (
-          <Card sx={{width: 300}} key={order.id}>
-            <CardContent>
-              <div>Number of your order: {order.id}</div>
-              <div>Number of products: {order.products.length}</div>
-              <div>Address: {order.address}</div>
-              <div>Price: {order.products.reduce((prev, cur) => prev + Number(cur.price), 0)}</div>
-            </CardContent>
-          </Card>
-        ))}
-      </Box>
-    </>
+    <main className="main-orders">
+      <h1>My orders</h1>
+      <section className="section-orders">
+        <Box sx={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', margin: 0 -5}}>
+          {addOrders.map((order) => (
+            <Card sx={{ width: 300, backgroundColor: '#F7F4F2', marginRight: 10, boxShadow: 5, borderRadius: 3, marginBottom: 5}} key={order.id}>
+              <CardContent>
+                <div>Your order id: {order.id}</div>
+                <div>Number of products: {order.products.length}</div>
+                <div>Address: {order.address}</div>
+                <div>Price: ${order.products.reduce((prev, cur) => prev + Number(cur.price), 0)}</div>
+              </CardContent>
+            </Card>
+          ))}
+        </Box>
+      </section>
+    </main>
   );
 };
 

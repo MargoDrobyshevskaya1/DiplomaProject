@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BrandsSvg = () => {
+export const BrandsSvg = () => {
   return (
     <>
       <svg width="66" height="42" viewBox="0 0 66 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,5 +28,3 @@ const BrandsSvg = () => {
     </>
   );
 };
-
-export default BrandsSvg;

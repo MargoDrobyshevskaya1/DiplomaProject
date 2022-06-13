@@ -46,18 +46,16 @@ const OrderForm = () => {
   return (
     <>
       <Dialog open={isFormOpened}>
-        <DialogTitle>
-        Fill out the order form
-        </DialogTitle>
         <DialogContent>
           <form className="orderForm" onSubmit={checkout}>
+            <h2>Fill out the order form</h2>
             <input name="adress" type="text" placeholder="Write your address"/>
             <label>{massegeText}</label> 
             <button type='submit'>Order</button>
           </form>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => dispatch(hideOrderFromAction())}>
+          <Button sx={{color: '#1E1E1E'}} onClick={() => dispatch(hideOrderFromAction())}>
           Close
           </Button>
         </DialogActions>

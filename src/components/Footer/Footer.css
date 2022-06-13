@@ -1,7 +1,6 @@
 footer {
   background-color: #1E1E1E;
-  position: static;
-  bottom: 0;
+  margin-top: auto;
 }
 
 .footer-wrapper p{

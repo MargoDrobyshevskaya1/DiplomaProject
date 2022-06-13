@@ -1,11 +1,16 @@
-main {
+.main-catalogue {
   background-color: #F7F4F2;
 }
 
+.main-catalogue {
+  padding: 50px 150px;
+}
+.main-catalogue h1 {
+  margin-bottom: 50px;
+}
 .section-sidebar {
-  padding: 100px 150px;
   display: flex;
-  justify-content: space-between;
+  background-color: #F7F4F2;
 }
 .header-sidebar {
   font-weight: 400;

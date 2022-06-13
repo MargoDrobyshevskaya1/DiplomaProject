@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import { Dialog, DialogContent} from '@mui/material';
+import { Dialog, DialogContent, DialogActions, Button} from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { showFormAuth as  showFormAuthAction, closeFormAuth as closeFormAuthAction} from '../../store/actions/authForm/authForm.actions';
@@ -54,13 +54,18 @@ const Authorization = () => {
       <Dialog open={showForm}>
         <DialogContent>
           <form className="formAuth" onSubmit={login}>
+            <h2>Log in</h2>
             <input type='text' name="username" placeholder="Username"/>
             <input type='password' name="password" placeholder="Password"/>
             <label>{errorText}</label>
-            <button type="submit" className="loginForm">Log in</button>
-            <button type="button" onClick={() => dispatch(closeFormAuthAction())}>Close</button>
+            <button type="submit" className="login-btn">Log in</button>
           </form>
         </DialogContent>
+        <DialogActions>
+          <Button sx={{color: '#1E1E1E'}} onClick={() => dispatch(closeFormAuthAction())}>
+          Close
+          </Button>
+        </DialogActions>
       </Dialog>
     </>
   );

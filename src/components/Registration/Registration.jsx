@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Dialog, DialogContent} from '@mui/material';
+import { Dialog, DialogContent, DialogActions, Button} from '@mui/material';
 import { showFormRegister as showFormRegisterAction, closeFormRegister as closeFormRegisterAction} from '../../store/actions/registerForm/registerForm.actions';
 import './Registration.css';
 const  Registration = () => {
@@ -51,9 +51,13 @@ const  Registration = () => {
             <input type="password" name="password" placeholder="Password"/>
             <label>{massegeText}</label>
             <button type="submit" className="register">Register</button>
-            <button type="button" onClick={() => dispatch(closeFormRegisterAction())}>Close</button>
           </form>
         </DialogContent>
+        <DialogActions>
+          <Button sx={{color: '#1E1E1E'}} onClick={() => dispatch(closeFormRegisterAction())}>
+          Close
+          </Button>
+        </DialogActions>
       </Dialog>
     </>
   );
