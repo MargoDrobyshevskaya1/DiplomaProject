@@ -36,7 +36,7 @@ const MyOrders = () => {
                 <div>Your order id: {order.id}</div>
                 <div>Number of products: {order.products.length}</div>
                 <div>Address: {order.address}</div>
-                <div>Price: ${order.products.reduce((prev, cur) => prev + Number(cur.price), 0)}</div>
+                <div>Price: ${order.products.reduce((prev, cur) => prev + Number(cur.price), 0).toFixed(1)}</div>
               </CardContent>
             </Card>
           ))}

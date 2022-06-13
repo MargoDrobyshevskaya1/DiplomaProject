@@ -1,4 +1,4 @@
-import { ADDTOCART, REMOVEFROMCART } from '../actions/cart/cart.actions-types';
+import { ADDTOCART, REMOVEFROMCART, CLEARCART } from '../actions/cart/cart.actions-types';
 
 export const initialState = [];
 export const cartReducer = (state = initialState, action) => {
@@ -11,6 +11,8 @@ export const cartReducer = (state = initialState, action) => {
     const deletedProduct = state.filter((item, index) => index !== action.payload);
     return deletedProduct;
   }  
+  case CLEARCART:
+    return initialState;
   default:
     return state;
   }

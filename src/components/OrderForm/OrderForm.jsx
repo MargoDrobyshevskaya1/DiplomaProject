@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material';
+import { Dialog, DialogContent, DialogActions, Button } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { hideOrderFrom as hideOrderFromAction } from '../../store/actions/orderForm/orderForm.actions';
+import { clearCart as clearCartAction } from '../../store/actions/cart/cart.actions';
 import './OrderForm.css';
 
 const OrderForm = () => {
@@ -39,7 +40,9 @@ const OrderForm = () => {
           if(resp.status === 401) {
             setMassegeText('You are not authorized. Please, login first');
           }
-        } else setMassegeText('Your order has been placed');
+        } else { setMassegeText('Your order has been placed');
+          dispatch(clearCartAction());
+        }
       })
     );
   };

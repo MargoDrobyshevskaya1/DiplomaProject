@@ -6,9 +6,6 @@ import { showOrderForm as showOrderFormAction } from '../../store/actions/orderF
 import OrderForm from '../OrderForm/OrderForm';
 import './Cart.css';
 
-// const cartStyles = {
-//   backgroundColor: '#F7F4F2'
-// };
 
 const Сart = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -67,7 +64,7 @@ const Сart = () => {
                 }
               </List> 
               {addProducts.length !== 0 ? <div className="totalAmount">
-                <p>Total amount: ${addProducts.reduce((prev, cur) => prev + Number(cur.price), 0)}</p>
+                <p>Total amount: ${addProducts.reduce((prev, cur) => prev + Number(cur.price), 0).toFixed(1)}</p>
               </div> : <></> }
               <div className="makeOrder-wrapper">
                 <button className="makeOrder" onClick={() => dispatch(showOrderFormAction())} disabled={addProducts.length !== 0 ? false : true}> <span>Checkout</span>
