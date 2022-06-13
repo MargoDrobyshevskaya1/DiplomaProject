@@ -3,10 +3,6 @@
   
 }
 
-/* nav ul li:not(:last-child) {
-  margin-right: 48px;
-} */
-
 nav ul li a {
   position: relative;
   text-decoration: none;

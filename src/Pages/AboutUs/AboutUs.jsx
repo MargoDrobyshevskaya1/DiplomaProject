@@ -23,7 +23,7 @@ const AboutUs = () => {
             </ul>
           </div>
           <div className="aboutus-img">
-            <img src={require('../../Pictures/AboutUsSection.png')} alt="Photo" />
+            <img src={require('../../assets/AboutUsSection.png')} alt="Photo" />
           </div>
         </div>
       </section>
@@ -33,7 +33,7 @@ const AboutUs = () => {
       </section>
       <section className="section-benefits">
         <div className="benefits-img">
-          <img src={require('../../Pictures/Product.png')} alt="Photo" />
+          <img src={require('../../assets/Product.png')} alt="Photo" />
         </div>
         <div className="benefits-ing">
           <p className="benefit-header">Straight Talking</p>

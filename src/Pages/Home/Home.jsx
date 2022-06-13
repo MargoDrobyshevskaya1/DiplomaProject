@@ -30,7 +30,7 @@ const Home = () => {
           <Link to="/aboutus"><button>Read more</button></Link>
         </div>
         <div>
-          <img src={require('../../Pictures/TargetSection.png')} alt="Photo" />
+          <img src={require('../../assets/TargetSection.png')} alt="Photo" />
         </div>
       </section>
       <section className="section-brands">

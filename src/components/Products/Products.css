@@ -14,6 +14,7 @@
   justify-content: space-between;
   width: 200px;
   margin-top: 5px;
+  font-family: Playfair Display;
 }
 
 .gridName {
@@ -27,7 +28,7 @@
 }
 
 .gridPrice {
-  font-weight: 400;
+  font-weight: 600;
   font-size: 12;
   color: #1E1E1E;
 }

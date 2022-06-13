@@ -1,12 +1,12 @@
 import './App.css';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import AboutUs from './Pages/AboutUs/AboutUs';
-import Contacts from './Pages/Contacts/Contacts';
-import Home from './Pages/Home/Home';
-import Catalogue from './Pages/Catalogue/Catalogue';
+import AboutUs from './pages/AboutUs/AboutUs';
+import Contacts from './pages/Contacts/Contacts';
+import Home from './pages/Home/Home';
+import Catalogue from './pages/Catalogue/Catalogue';
 import Layout from './components/Layout/Layout';
-import MyOrders from './Pages/MyOrders/MyOrders';
+import MyOrders from './pages/MyOrders/MyOrders';
 function App() {
   return ( 
     <>
