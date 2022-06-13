@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogActions, Button } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { hideOrderFrom as hideOrderFromAction } from '../../store/actions/orderForm/orderForm.actions';
 import { clearCart as clearCartAction } from '../../store/actions/cart/cart.actions';
+import { BASE_URL } from '../../api/constants/urls';
 import './OrderForm.css';
 
 const OrderForm = () => {
@@ -22,7 +23,7 @@ const OrderForm = () => {
     };
     console.log(respBody);
     console.log(token);
-    const resp = fetch('http://localhost:8000/users/me/orders/', {
+    const resp = fetch(`${BASE_URL}/users/me/orders/`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

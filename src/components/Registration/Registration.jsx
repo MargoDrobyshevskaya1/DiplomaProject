@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Dialog, DialogContent, DialogActions, Button} from '@mui/material';
 import { showFormRegister as showFormRegisterAction, closeFormRegister as closeFormRegisterAction} from '../../store/actions/registerForm/registerForm.actions';
+import { BASE_URL } from '../../api/constants/urls';
 import './Registration.css';
 const  Registration = () => {
   const [massegeText, setMassegeText] = useState('');
@@ -16,7 +17,7 @@ const  Registration = () => {
       name: e.target.name.value,
       password: e.target.password.value,
     };
-    const resp = fetch('http://localhost:8000/users/register/', {
+    const resp = fetch(`${BASE_URL}/users/register/`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -54,7 +55,9 @@ const  Registration = () => {
           </form>
         </DialogContent>
         <DialogActions>
-          <Button sx={{color: '#1E1E1E'}} onClick={() => dispatch(closeFormRegisterAction())}>
+          <Button sx={{color: '#1E1E1E'}} onClick={() => {
+            dispatch(closeFormRegisterAction()); 
+            setMassegeText('');}}>
           Close
           </Button>
         </DialogActions>

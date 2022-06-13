@@ -10,6 +10,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import { ListItemText } from '@mui/material';
 import { updateProducts as updateProductsAction } from '../../store/actions/products/products.actions';
 import { useDispatch } from 'react-redux';
+import { BASE_URL } from '../../api/constants/urls';
 import './Type.css';
 
 const Type = () => { 
@@ -20,7 +21,7 @@ const Type = () => {
   
   const handleListItemClick = (event, index, productType, categories) => {
     setSelectedIndex(index);
-    const request = fetch(`http://localhost:8000/products?product_type=${productType}&category=${categories}`, {
+    const request = fetch(`${BASE_URL}/products?product_type=${productType}&category=${categories}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json'
@@ -36,7 +37,7 @@ const Type = () => {
     request();
   }, []);
   const request = () => {
-    const response = fetch('http://localhost:8000/product_types/', {
+    const response = fetch(`${BASE_URL}/product_types/`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json'
@@ -64,7 +65,7 @@ const Type = () => {
                   <ListItemButton key={categorie.id}
                     selected={selectedIndex === index}
                     onClick={(event) => handleListItemClick(event, index, type.name, categorie.name)} >
-                    <ListItemText  textAlign='left' primary={categorie.name.charAt(0).toUpperCase() + categorie.name.slice(1)} />
+                    <ListItemText primaryTypographyProps={{fontFamily: 'Playfair Display'}} textAlign='left' primary={categorie.name.charAt(0).toUpperCase() + categorie.name.slice(1)} />
                   </ListItemButton>
                 ))}
               </List>

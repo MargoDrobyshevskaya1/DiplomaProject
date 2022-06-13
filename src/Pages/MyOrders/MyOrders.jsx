@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Card, CardContent } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { products as productsAction } from '../../store/actions/products/products.actions';
+import { BASE_URL } from '../../api/constants/urls';
 import './MyOrders.css';
 
 const MyOrders = () => {
@@ -13,7 +14,7 @@ const MyOrders = () => {
   }, []);
   const getOrders = () => {
     const token = JSON.parse(localStorage.getItem('token'));
-    const resp = fetch('http://localhost:8000/users/me/orders/', {
+    const resp = fetch(`${BASE_URL}/users/me/orders/`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json', 

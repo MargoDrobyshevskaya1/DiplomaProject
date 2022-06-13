@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { showFormAuth as  showFormAuthAction, closeFormAuth as closeFormAuthAction} from '../../store/actions/authForm/authForm.actions';
 import { login as loginAction, logout as logoutAction } from '../../store/actions/user/user.actions';
+import { BASE_URL } from '../../api/constants/urls';
 import './Authorization.css';
 const Authorization = () => {
 
@@ -20,7 +21,7 @@ const Authorization = () => {
       const formData = new URLSearchParams();
       formData.append('username', e.target.username.value);
       formData.append('password', e.target.password.value);
-      const resp = fetch('http://localhost:8000/auth', {
+      const resp = fetch(`${BASE_URL}/auth`, {
         method: 'POST',
         body: formData,
         headers: {
@@ -62,7 +63,9 @@ const Authorization = () => {
           </form>
         </DialogContent>
         <DialogActions>
-          <Button sx={{color: '#1E1E1E'}} onClick={() => dispatch(closeFormAuthAction())}>
+          <Button sx={{color: '#1E1E1E'}} onClick={() => {
+            dispatch(closeFormAuthAction()); 
+            setErrorText('');}}>
           Close
           </Button>
         </DialogActions>

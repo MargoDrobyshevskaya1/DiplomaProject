@@ -4,6 +4,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import { ListItemText } from '@mui/material';
 import { updateProducts as updateProductsAction } from '../../store/actions/products/products.actions';
 import { useDispatch } from 'react-redux';
+import { BASE_URL } from '../../api/constants/urls';
 
 export const styleBrandsTypes = {
   display: 'flex', 
@@ -17,7 +18,7 @@ const Brands = () => {
 
   const handleListItemClick = (event, index, reqParam) => {
     setSelectedIndex(index);
-    const request = fetch(`http://localhost:8000/products?brand_name=${reqParam}`, {
+    const request = fetch(`${BASE_URL}/products?brand_name=${reqParam}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json'
@@ -52,7 +53,7 @@ const Brands = () => {
           <ListItemButton key={brand.id}
             selected={selectedIndex === index}
             onClick={(event) => handleListItemClick(event, index, brand.name)}>
-            <ListItemText primary={brand.name.charAt(0).toUpperCase() + brand.name.slice(1)} />
+            <ListItemText primaryTypographyProps={{fontFamily: 'Playfair Display'}} primary={brand.name.charAt(0).toUpperCase() + brand.name.slice(1)} />
           </ListItemButton>
         ))}
       </List>
