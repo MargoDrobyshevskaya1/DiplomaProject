@@ -42,7 +42,7 @@
   border: none;
 }
 
-.makeOrder {
+.makeOrder-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,12 +57,21 @@
   border: none;
 }
 
+.makeOrder-btn:active {
+  background: #5E5E5E;
+}
+
+.makeOrder-btn:disabled {
+  background: #787878;
+  color: #5E5E5E;
+}
+
 .makeOrder-wrapper {
   display: flex;
   justify-content: center;
 }
 
-.makeOrder span {
+.makeOrder-btn span {
   margin-right: 10px;
 }
 

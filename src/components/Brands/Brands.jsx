@@ -18,7 +18,7 @@ const Brands = () => {
 
   const handleListItemClick = (event, index, reqParam) => {
     setSelectedIndex(index);
-    const request = fetch(`${BASE_URL}/products?brand_name=${reqParam}`, {
+    const request = fetch(`${BASE_URL}/products?brand_name=${reqParam}&page=1`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json'
@@ -47,17 +47,15 @@ const Brands = () => {
   };
 
   return (
-    <>
-      <List component="nav" aria-label="main mailbox folders" sx={styleBrandsTypes}>
-        {brands.map((brand, index) => (
-          <ListItemButton key={brand.id}
-            selected={selectedIndex === index}
-            onClick={(event) => handleListItemClick(event, index, brand.name)}>
-            <ListItemText primaryTypographyProps={{fontFamily: 'Playfair Display'}} primary={brand.name.charAt(0).toUpperCase() + brand.name.slice(1)} />
-          </ListItemButton>
-        ))}
-      </List>
-    </>
+    <List component="nav" aria-label="main mailbox folders" sx={styleBrandsTypes}>
+      {brands.map((brand, index) => (
+        <ListItemButton key={brand.id}
+          selected={selectedIndex === index}
+          onClick={(event) => handleListItemClick(event, index, brand.name)}>
+          <ListItemText primaryTypographyProps={{fontFamily: 'Playfair Display'}} primary={brand.name.charAt(0).toUpperCase() + brand.name.slice(1)} />
+        </ListItemButton>
+      ))}
+    </List>
   );
 };
 

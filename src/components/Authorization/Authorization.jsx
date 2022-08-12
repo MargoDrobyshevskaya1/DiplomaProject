@@ -59,7 +59,7 @@ const Authorization = () => {
             <input type='text' name="username" placeholder="Username"/>
             <input type='password' name="password" placeholder="Password"/>
             <label>{errorText}</label>
-            <button type="submit" className="login-btn">Log in</button>
+            <button type="submit" className = 'login-btn'>Log in</button>
           </form>
         </DialogContent>
         <DialogActions>

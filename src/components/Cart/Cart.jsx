@@ -67,7 +67,7 @@ const Сart = () => {
                 <p>Total amount: ${addProducts.reduce((prev, cur) => prev + Number(cur.price), 0).toFixed(1)}</p>
               </div> : <></> }
               <div className="makeOrder-wrapper">
-                <button className="makeOrder" onClick={() => dispatch(showOrderFormAction())} disabled={addProducts.length !== 0 ? false : true}> <span>Checkout</span>
+                <button className="makeOrder-btn" onClick={() => dispatch(showOrderFormAction())} disabled={addProducts.length !== 0 ? false : true}> <span>Checkout</span>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 5.5H23V21.2295C23 22.2073 22.2224 23 21.2632 23H2.73684C1.77761 23 1 22.2073 1 21.2295V5.5Z" stroke="#F7F4F2"/>
                     <path d="M6 10V7.54545C6 3.9305 8.6863 1 12 1C15.3137 1 18 3.9305 18 7.54545V10" stroke="#F7F4F2" strokeLinecap="round"/>
