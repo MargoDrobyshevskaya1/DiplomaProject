@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import OurValues from '../Home/OurValues';
+import { resetProductType as  resetProductTypeAction, resetCategory as resetCategoryAction} from '../../store/actions/query/query.actions';
+import { resetPagination as  resetPaginationAction } from '../../store/actions/pagination/pagination.actions';
 import { products as productsAction } from '../../store/actions/products/products.actions';
 import './AboutUs.css';
 
@@ -8,6 +10,9 @@ const AboutUs = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(productsAction());
+    dispatch(resetProductTypeAction());
+    dispatch(resetCategoryAction());
+    dispatch(resetPaginationAction());
   });
   return (
     <main>

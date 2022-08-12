@@ -4,6 +4,7 @@
 
 .main-catalogue {
   padding: 50px 150px;
+  position: relative;
 }
 .main-catalogue h1 {
   margin-bottom: 50px;
@@ -11,6 +12,7 @@
 .section-sidebar {
   display: flex;
   background-color: #F7F4F2;
+  
 }
 .header-sidebar {
   font-weight: 400;

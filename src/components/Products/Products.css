@@ -37,7 +37,7 @@
   margin-left: 100px;
 }
 
-.addToCart {
+.addToCart-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,6 +52,10 @@
   border: none;
 }
 
-.addToCart span {
+.addToCart-btn:active {
+  background: #5E5E5E;
+}
+
+.addToCart-btn span {
   margin-right: 5px;
 }

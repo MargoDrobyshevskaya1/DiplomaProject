@@ -8,34 +8,24 @@ import { styleBrandsTypes } from '../Brands/Brands';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import { ListItemText } from '@mui/material';
-import { updateProducts as updateProductsAction } from '../../store/actions/products/products.actions';
+import { updateProductType as updateProductTypeAction, updateCategory as  updateCategoryAction} from '../../store/actions/query/query.actions';
+import { showPagination as  showPaginationAction} from '../../store/actions/pagination/pagination.actions';
+import { resetPage as resetPageAction } from '../../store/actions/pageNumber/pageNumber.actions';
 import { useDispatch } from 'react-redux';
 import { BASE_URL } from '../../api/constants/urls';
 import './Type.css';
 
 const Type = () => { 
-  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [types, setTypes] = useState([]);
 
   const dispatch = useDispatch();
   
-  const handleListItemClick = (event, index, productType, categories) => {
-    setSelectedIndex(index);
-    const request = fetch(`${BASE_URL}/products?product_type=${productType}&category=${categories}`, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json'
-      }
-    }).then((response) => {
-      return response.json();
-    }).then((data) => {
-      dispatch(updateProductsAction(data));
-    });
-  }; 
 
   useEffect(() => {
     request();
   }, []);
+
   const request = () => {
     const response = fetch(`${BASE_URL}/product_types/`, {
       method: 'GET',
@@ -64,8 +54,14 @@ const Type = () => {
                 {type.categories.map((categorie, index) => (
                   <ListItemButton key={categorie.id}
                     selected={selectedIndex === index}
-                    onClick={(event) => handleListItemClick(event, index, type.name, categorie.name)} >
-                    <ListItemText primaryTypographyProps={{fontFamily: 'Playfair Display'}} textAlign='left' primary={categorie.name.charAt(0).toUpperCase() + categorie.name.slice(1)} />
+                    onClick={() => {
+                      setSelectedIndex(index);
+                      dispatch(updateProductTypeAction(type.name));
+                      dispatch(updateCategoryAction(categorie.name));
+                      dispatch(showPaginationAction());
+                      dispatch(resetPageAction());
+                    }} >
+                    <ListItemText primaryTypographyProps={{fontFamily: 'Playfair Display'}} textalign='left' primary={categorie.name.charAt(0).toUpperCase() + categorie.name.slice(1)} />
                   </ListItemButton>
                 ))}
               </List>
@@ -78,3 +74,4 @@ const Type = () => {
 };
 
 export default Type;
+// (event) => handleListItemClick(event, index, type.name, categorie.name)

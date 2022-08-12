@@ -25,6 +25,9 @@ font-size: 18px;
 border: none;
 }
 
+.register:active {
+  background-color: #5E5E5E;
+}
 input {
 width: 400px;
 height: 56px;
